@@ -1,0 +1,360 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-alexandria);
+}
+
+:root {
+  color-scheme: dark;
+  --midar-bg: #08110f;
+  --midar-lime: #b9f46a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--midar-bg);
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--midar-bg);
+  color: #f5f7f2;
+  font-family: var(--font-alexandria), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+select {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+::selection {
+  background: rgba(185, 244, 106, 0.25);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(185, 244, 106, 0.75);
+  outline-offset: 3px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+  background-size: 68px 68px;
+  mask-image: linear-gradient(to bottom, black, transparent 92%);
+}
+
+.wallet-grid {
+  background-image:
+    linear-gradient(rgba(16, 32, 25, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 32, 25, 0.035) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(circle at center, black, transparent 85%);
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+.ticker-track {
+  animation: ticker-scroll 42s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-right: 1px solid rgba(185, 244, 106, 0.45);
+  padding-right: 0.75rem;
+  color: rgba(217, 249, 176, 0.52);
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+}
+
+.icon-button {
+  display: inline-grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.65rem;
+  color: rgba(255, 255, 255, 0.42);
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.icon-button:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 0.7rem;
+  padding: 0.7rem 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.secondary-button:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-radius: 0.75rem;
+  background: rgba(0, 0, 0, 0.16);
+  padding: 0.78rem 0.9rem;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.75rem;
+  outline: none;
+  transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.field::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.field:focus {
+  border-color: rgba(185, 244, 106, 0.32);
+  background: rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 0 3px rgba(185, 244, 106, 0.04);
+}
+
+.field-light {
+  width: 100%;
+  border: 1px solid rgba(16, 32, 25, 0.11);
+  border-radius: 0.75rem;
+  background: rgba(16, 32, 25, 0.025);
+  padding: 0.85rem 0.9rem;
+  color: #102019;
+  font-size: 0.75rem;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.field-light::placeholder {
+  color: rgba(16, 32, 25, 0.27);
+}
+
+.field-light:focus {
+  border-color: rgba(16, 32, 25, 0.35);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(16, 32, 25, 0.035);
+}
+
+.data-table,
+.light-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+}
+
+.data-table th {
+  padding: 0.85rem 1.15rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+  color: rgba(255, 255, 255, 0.27);
+  font-size: 0.58rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 1rem 1.15rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.66rem;
+  transition: background-color 160ms ease;
+}
+
+.data-table tbody tr:last-child td,
+.light-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.light-table th {
+  padding: 0.85rem 1.15rem;
+  border-bottom: 1px solid rgba(16, 32, 25, 0.07);
+  color: rgba(16, 32, 25, 0.38);
+  font-size: 0.58rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.light-table td {
+  padding: 1rem 1.15rem;
+  border-bottom: 1px solid rgba(16, 32, 25, 0.06);
+  color: rgba(16, 32, 25, 0.65);
+  font-size: 0.66rem;
+}
+
+.status-open,
+.status-filled,
+.status-cancelled,
+.status-rejected,
+.deposit-status-pending,
+.deposit-status-cancelled,
+.deposit-status-approved,
+.deposit-status-rejected {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.4rem;
+  padding: 0.28rem 0.5rem;
+  font-size: 0.56rem;
+  white-space: nowrap;
+}
+
+.status-open,
+.deposit-status-pending {
+  background: rgba(251, 191, 36, 0.08);
+  color: rgba(253, 230, 138, 0.8);
+}
+
+.status-filled,
+.deposit-status-approved {
+  background: rgba(185, 244, 106, 0.08);
+  color: rgba(185, 244, 106, 0.8);
+}
+
+.status-cancelled,
+.deposit-status-cancelled {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.36);
+}
+
+.status-rejected,
+.deposit-status-rejected {
+  background: rgba(255, 140, 131, 0.08);
+  color: rgba(255, 140, 131, 0.8);
+}
+
+.light-table .deposit-status-pending {
+  background: rgba(146, 104, 12, 0.08);
+  color: rgba(113, 78, 5, 0.72);
+}
+
+.light-table .deposit-status-cancelled {
+  background: rgba(16, 32, 25, 0.06);
+  color: rgba(16, 32, 25, 0.45);
+}
+
+.admin-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 0.45rem;
+  padding: 0.38rem 0.5rem;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.54rem;
+  white-space: nowrap;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.admin-action:hover { background: rgba(255, 255, 255, 0.05); color: #fff; }
+
+.user-status-pending,
+.user-status-active,
+.user-status-suspended,
+.code-status-active,
+.code-status-used,
+.code-status-disabled {
+  display: inline-flex;
+  border-radius: 0.4rem;
+  padding: 0.28rem 0.5rem;
+  font-size: 0.55rem;
+  white-space: nowrap;
+}
+
+.user-status-pending { background: rgba(251, 191, 36, 0.08); color: rgba(253, 230, 138, 0.75); }
+.user-status-active, .code-status-active { background: rgba(185, 244, 106, 0.08); color: rgba(185, 244, 106, 0.75); }
+.user-status-suspended, .code-status-disabled { background: rgba(255, 140, 131, 0.08); color: rgba(255, 140, 131, 0.7); }
+.code-status-used { background: rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.35); }
+
+.scrollbar-dark {
+  scrollbar-color: rgba(255, 255, 255, 0.12) transparent;
+  scrollbar-width: thin;
+}
+
+.scrollbar-dark::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .data-table th,
+  .data-table td,
+  .light-table th,
+  .light-table td {
+    padding-right: 0.85rem;
+    padding-left: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ticker-track { animation: none; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
